@@ -15,7 +15,7 @@
 			const urlParams = new URLSearchParams(window.location.search);
 			const salary = parseInt(urlParams.get('salary'));
 			const hoursPerMonth = 21 * 7.5; // on average 21 work days in a month
-			const salaryPerSecond = salary / (hoursPerMonth * 60);
+			const salaryPerSecond = salary / (hoursPerMonth * 60 * 60);
 			let seconds = 0;
 
 			if (!isNaN(salary)) {
