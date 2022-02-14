@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>How much have I earned</title>
+		<style type="text/css">
+		</style>
+	</head>
+	<body>
+
+		<p>Since opening this page I have earned</p>
+		<h1 id="income">0 €</h1>
+
+		<script type="text/javascript">
+			const urlParams = new URLSearchParams(window.location.search);
+			const salary = parseInt(urlParams.get('salary'));
+			const hoursPerMonth = 21 * 7.5; // on average 21 work days in a month
+			const salaryPerSecond = salary / (hoursPerMonth * 60);
+			let seconds = 0;
+
+			if (!isNaN(salary)) {
+				setInterval(function() {
+					seconds++;
+					const earned = seconds * salaryPerSecond;
+					document.getElementById('income').innerHTML = earned.toFixed(2) + ' €';
+				}, 1000);
+			}
+			
+		</script>
+
+	</body>
+</html>
